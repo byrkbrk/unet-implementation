@@ -13,7 +13,7 @@ class UNet(nn.Module):
         pass
 
 
-def FeatureMapBlock(nn.Module):
+class FeatureMapBlock(nn.Module):
     """Reduce or increase  # channels of a given tensor"""
     def __init__(self, input_channels, output_channels):
         super(FeatureMapBlock, self).__init__()
@@ -23,7 +23,7 @@ def FeatureMapBlock(nn.Module):
         return self.model(x)
 
 
-def ContractingBlock(nn.Module):
+class ContractingBlock(nn.Module):
     """Reduce height and width of a given tensor"""
     def __init__(self, input_channels):
         super(ContractingBlock, self).__init__()
@@ -36,3 +36,36 @@ def ContractingBlock(nn.Module):
 
     def forward(self, x):
         return self.model(x)
+
+
+class ExpandingBlock(nn.Module):
+    """Increase height and width of a given tensor"""
+    def __init__(self, input_channels):
+        super(ExpandingBlock, self).__init__()
+        self.upsample = nn.Upsample(scale_factor=2, mode="bilinear",
+            align_corners=True)
+        self.conv1 = nn.Conv2d(input_channels, input_channels//2, kernel_size=2)
+        self.conv2 = nn.Conv2d(input_channels, input_channels//2, kernel_size=3)
+        self.conv3 = nn.Conv2d(input_channels//2, input_channels//2, kernel_size=3)
+        self.relu = nn.ReLU()
+
+    def crop(self, tensor_images, new_shape):
+        h = new_shape[2]
+        w = new_shape[3]
+        h_start = int((tensor_images.shape[2] - h) / 2)
+        w_start = int((tensor_images.shape[3] - w) / 2)
+        cropped_images = tensor_images[:, :, h_start:h_start+h, w_start:w_start+w]
+
+        return cropped_images
+
+    def forward(self, x, skip_x):
+        x = self.upsample(x)
+        x = self.conv1(x)
+        skip_x_cropped = self.crop(skip_x, x.shape)
+        x = torch.cat([x, skip_x_cropped], dim=1)
+        x = self.conv2(x)
+        x = self.relu(x)
+        x = self.conv3(x)
+        x = self.relu(x)
+
+        return x
