@@ -5,9 +5,18 @@ import torch.nn as nn
 
 
 class UNet(nn.Module):
-    def __init__(self, input_channels, out_channels, hidden_channels=32):
+    def __init__(self, input_channels, output_channels, hidden_channels=32):
         super(UNet, self).__init__()
-        pass
+        self.upfeature = FeatureMapBlock(input_channels, hidden_channels)
+        self.contract1 = ContractingBlock(hidden_channels)
+        self.contract2 = ContractingBlock(hidden_channels*2)
+        self.contract3 = ContractingBlock(hidden_channels*4)
+        self.contract4 = ContractingBlock(hidden_channels*8)
+        self.expand1 = ExpandingBlock(hidden_channels*16)
+        self.expand2 = ExpandingBlock(hidden_channels*8)
+        self.expand3 = ExpandingBlock(hidden_channels*4)
+        self.expand4 = ExpandingBlock(hidden_channels*2)
+        self.downfeature = FeatureMapBlock(hidden_channels, output_channels)
 
     def forward(self, x):
         pass
