@@ -19,7 +19,18 @@ class UNet(nn.Module):
         self.downfeature = FeatureMapBlock(hidden_channels, output_channels)
 
     def forward(self, x):
-        pass
+        x0 = self.upfeature(x)
+        x1 = self.contract1(x0)
+        x2 = self.contract2(x1)
+        x3 = self.contract3(x2)
+        x4 = self.contract4(x3)
+        x5 = self.expand1(x4, x3)
+        x6 = self.expand2(x5, x2)
+        x7 = self.expand3(x6, x1)
+        x8 = self.expand4(x7, x0)
+        x_out = self.downfeature(x8)
+
+        return x_out
 
 
 class FeatureMapBlock(nn.Module):
