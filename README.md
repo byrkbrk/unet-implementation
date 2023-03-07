@@ -13,4 +13,4 @@ This repository is designed to train the model and make inferences entirely on G
 
 - open the notebook `unet_cell_data.ipynb` on Colab (by either using this [link](https://colab.research.google.com/github/byrkbrk/unet-implementation/blob/main/unet_cell_data.ipynb) or the link *Open in Colab* at the top left of the notebook)
 - sign in your Google account (if you haven't yet)
-- run the cells (with short explanatory comments) one by one
+- run the cells (having short explanatory comments) one by one
