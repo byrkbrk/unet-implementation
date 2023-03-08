@@ -20,3 +20,9 @@ This repository is designed to train the model and make inferences entirely on G
 Our training dataset consists of 30 input-label image pairs (i.e., `volumes-train.tif`, `labels-train.tif`) and one example of them is as follows:
 
 ![input-label-pair](./images-for-readme/input-label-pair.png)
+
+## Similarly, our test dataset contains 30 images. Some inputs from the test dataset and the corresponding predictions are as follows:
+
+![test-images](./images-for-readme/test-images.png)
+
+![predictions](./images-for-readme/predictions.png)
