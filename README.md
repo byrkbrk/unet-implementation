@@ -21,7 +21,9 @@ Our training dataset consists of 30 input-label image pairs (i.e., `volumes-trai
 
 ![input-label-pair](./images-for-readme/input-label-pair.png)
 
-## Similarly, our test dataset contains 30 images. Some inputs from the test dataset and the corresponding predictions are as follows:
+## Test dataset and predictions
+
+Similarly, our test dataset contains 30 images. Some inputs from the test dataset and the corresponding predictions are as follows:
 
 ![test-images](./images-for-readme/test-images.png)
 
