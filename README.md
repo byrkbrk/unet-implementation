@@ -14,3 +14,9 @@ This repository is designed to train the model and make inferences entirely on G
 - open the notebook `unet_cell_data.ipynb` on Colab (by either using this [link](https://colab.research.google.com/github/byrkbrk/unet-implementation/blob/main/unet_cell_data.ipynb) or the link *Open in Colab* at the top left of the notebook)
 - sign in your Google account (if you haven't yet)
 - run the cells (having short explanatory comments) one by one
+
+## Training dataset
+
+Our training dataset consists of 30 input-label image pairs (i.e., `volumes-train.tif`, `labels-train.tif`) and one example of them is as follows:
+
+![input-label-pair](./images-for-readme/input-label-pair.png)
