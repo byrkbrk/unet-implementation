@@ -23,7 +23,7 @@ Our training dataset consists of 30 input-label image pairs (i.e., `volumes-trai
 
 ## Test dataset and predictions
 
-In like manner, our test dataset (viz., `volumes-test.tif`) comprises a total of 30 images. Presented below are certain exemplars drawn from the test dataset, together with the corresponding predictions.
+In like manner, our test dataset (viz., `volumes-test.tif`) comprises a total of 30 images. Presented below are certain exemplars drawn from the test dataset, together with the corresponding predictions (of our trained U-Net):
 
 ![test-images](./images-for-readme/test-images.png)
 
