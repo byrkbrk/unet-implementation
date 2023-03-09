@@ -9,7 +9,7 @@ Our U-Net architecture is inspired by the Coursera course [Apply GANs](https://w
 ---
 
 ## Requirements
-This repository is designed to train the model and make inferences entirely on Google Colab. So, for successful training and inferring, it suffices to
+This repository is designed to train the model and make inferences entirely on Google Colab. So, for successful training and inference, it suffices to
 
 - open the notebook `unet_cell_data.ipynb` on Colab (by using either this [link](https://colab.research.google.com/github/byrkbrk/unet-implementation/blob/main/unet_cell_data.ipynb) or the link *Open in Colab* at the top left of the notebook)
 - sign in your Google account (if you haven't yet)
