@@ -18,13 +18,13 @@ on Colab (by using either this [link](https://colab.research.google.com/github/b
 
 ## Training dataset
 
-Our training dataset consists of 30 input-label image pairs (i.e., `volumes-train.tif`, `labels-train.tif`) and one example of them is as follows:
+Our training dataset consists of 30 (512-by-512) input-label image pairs (i.e., `volumes-train.tif`, `labels-train.tif`) and one example of them is as follows:
 
 ![input-label-pair](./images-for-readme/input-label-pair.png)
 
 ## Test dataset and predictions
 
-In like manner, our test dataset (viz., `volumes-test.tif`) comprises a total of 30 images. Presented below are certain exemplars drawn from the test dataset, together with the corresponding predictions (of our trained U-Net):
+In like manner, our test dataset (viz., `volumes-test.tif`) comprises a total of 30 (512-by-512) images. Presented below are certain exemplars drawn from the test dataset, together with the corresponding predictions (of our trained U-Net):
 
 ![test-images](./images-for-readme/test-images.png)
 
